@@ -11,6 +11,7 @@ import {
   Settings,
   PawPrint,
   LogOut,
+  Mail,
 } from "lucide-react";
 
 const navigation = [
@@ -20,6 +21,7 @@ const navigation = [
   { name: "Agentes", href: "/agents", icon: UserCheck },
   { name: "Documentos", href: "/documents", icon: FileText },
   { name: "Transacciones", href: "/transactions", icon: CreditCard },
+  { name: "Promociones", href: "/promotions", icon: Mail },
   { name: "Configuración", href: "/settings", icon: Settings },
 ];
 

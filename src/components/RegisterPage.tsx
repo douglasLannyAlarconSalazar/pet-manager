@@ -4,12 +4,16 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { PawPrint } from "lucide-react";
 
 const RegisterPage = () => {
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [petPreference, setPetPreference] = useState("");
+  const [accessoryPreference, setAccessoryPreference] = useState("");
+  const [medicationPreference, setMedicationPreference] = useState("");
   const navigate = useNavigate();
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -68,6 +72,58 @@ const RegisterPage = () => {
                 className="border-input-border focus:border-primary"
               />
             </div>
+
+            <div className="space-y-2">
+              <Label htmlFor="petPreference">Preferencias sobre mascotas</Label>
+              <Select value={petPreference} onValueChange={setPetPreference} required>
+                <SelectTrigger id="petPreference" className="border-input-border focus:border-primary">
+                  <SelectValue placeholder="Selecciona tu preferencia" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="gato">Gato</SelectItem>
+                  <SelectItem value="perro">Perro</SelectItem>
+                  <SelectItem value="ave">Ave</SelectItem>
+                  <SelectItem value="reptil">Reptil</SelectItem>
+                  <SelectItem value="roedor">Roedor</SelectItem>
+                  <SelectItem value="otros">Otros</SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
+
+            <div className="space-y-2">
+              <Label htmlFor="accessoryPreference">Preferencias de accesorios y artículos</Label>
+              <Select value={accessoryPreference} onValueChange={setAccessoryPreference} required>
+                <SelectTrigger id="accessoryPreference" className="border-input-border focus:border-primary">
+                  <SelectValue placeholder="Selecciona tu preferencia" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="juguetes">Juguetes</SelectItem>
+                  <SelectItem value="collares">Collares y correas</SelectItem>
+                  <SelectItem value="camas">Camas y mantas</SelectItem>
+                  <SelectItem value="comederos">Comederos y bebederos</SelectItem>
+                  <SelectItem value="transportadoras">Transportadoras</SelectItem>
+                  <SelectItem value="higiene">Productos de higiene</SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
+
+            <div className="space-y-2">
+              <Label htmlFor="medicationPreference">Preferencias de productos y medicamentos</Label>
+              <Select value={medicationPreference} onValueChange={setMedicationPreference} required>
+                <SelectTrigger id="medicationPreference" className="border-input-border focus:border-primary">
+                  <SelectValue placeholder="Selecciona tu preferencia" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="ninguna">Ninguna</SelectItem>
+                  <SelectItem value="desparasitantes">Desparasitantes</SelectItem>
+                  <SelectItem value="vitaminas">Vitaminas</SelectItem>
+                  <SelectItem value="antipulgas">Antipulgas</SelectItem>
+                  <SelectItem value="antibioticos">Antibióticos</SelectItem>
+                  <SelectItem value="suplementos">Suplementos alimenticios</SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
+
             <Button type="submit" className="w-full">
               Registrarse
             </Button>
